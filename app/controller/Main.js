@@ -1,5 +1,9 @@
 Ext.define('Touch2Demo.controller.Main', {
     extend: 'Ext.app.Controller',
+        requires: [
+	'Touch2Demo.store.dataSincronizacaoPHP',
+	 'Ext.device.Device'
+    ],
     config: {
 	routes: {
 	    '': 'showMenuIniciar',
@@ -308,7 +312,7 @@ Ext.define('Touch2Demo.controller.Main', {
 	 r.add('codCliente', record.get('codCliente'));*/
 	//user.defineProperty('id','0');
 
-	//console.log('é nulo');
+	//console.log('Ã© nulo');
 	/*if (record && record.data) {
 	 
 	 } else {
@@ -362,16 +366,16 @@ Ext.define('Touch2Demo.controller.Main', {
 		});
 	    });
 	});
-	Ext.Msg.confirm(
-		'Sincronização',
-		'Deseja sincronizar os contatos?',
-		function (btn) {
-		    if (btn == 'yes') {
-			//location.reload();
-		    }
-		},
-		this
-		);
+//	Ext.Msg.confirm(
+//		'SincronizaÃ§Ã£o',
+//		'Deseja sincronizar os contatos?',
+//		function (btn) {
+//		    if (btn == 'yes') {
+//			//location.reload();
+//		    }
+//		},
+//		this
+//		);
     },
     apagarSincronizarPneu: function () {
 	var store = Ext.getStore('Pneu_s');
@@ -648,6 +652,7 @@ Ext.define('Touch2Demo.controller.Main', {
 	}
     },
     salvarDataSincronizacao: function(){
+    		Ext.Msg.alert('teste', Ext.device.Device.uuid, Ext.emptyFn);
 	var form = this.getColetasForm(),
 		camposForm = Ext.create('Touch2Demo.model.Coleta', form.getValues());
 	console.log(camposForm.data.data_entrega);
@@ -792,8 +797,8 @@ Ext.define('Touch2Demo.controller.Main', {
 	    k++;
 	});
 	if (k <= 0) {
-	    Ext.Msg.alert('Sincronização', 'Não usuarios no banco', Ext.emptyFn);
-	    //    this.tela de sincronização
+	    Ext.Msg.alert('SincronizaÃ§Ã£o', 'NÃ£o usuarios no banco', Ext.emptyFn);
+	    //    this.tela de sincronizaÃ§Ã£o
 	} else {
 
 	}
@@ -806,7 +811,7 @@ Ext.define('Touch2Demo.controller.Main', {
 	    n++;
 	});
 	if (n <= 0) {
-	    Ext.Msg.alert('Sair', 'não a usuario logado');
+	    Ext.Msg.alert('Sair', 'nÃ£o a usuario logado');
 	} else {
 	    Ext.Msg.confirm(
 		    'Sair',
